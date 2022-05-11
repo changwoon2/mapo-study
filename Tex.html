@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tex</title>
+  </head>
+  <body>
+    <h3 id="open">안녕하세요</h3>
+    <h2 id="opens">반가워요</h2>
+
+    <input type="text" id="name" onkeyup="printname()" />
+    <div id="result"></div>
+    <hr />
+    <input type="text" id="name2" />
+    <button id="button" onclick="printinput()">버튼</button>
+    <script>
+      let s = document.getElementById("open");
+      s.innerHTML = "안녕하세요";
+      document.getElementById("opens").innerHTML = "반가워요";
+      let name = document.getElementById("name");
+      let result = document.getElementById("result");
+      let name2 = document.getElementById("name2");
+
+      function printname() {
+        result.innerHTML = name.value;
+      }
+
+      function printText() {
+        s.innerHTML = "입력";
+      }
+      setTimeout(printText, 4000);
+      function printinput() {
+        if (name2.value == null || name2.value === "") {
+          alert("값을입력");
+        } else {
+          alert(name2.value);
+        }
+      }
+    </script>
+  </body>
+</html>

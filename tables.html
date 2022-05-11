@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>tables</title>
+    <style>
+      table {
+        border: 1px solid #444444;
+        border-collapse: collapse;
+        width: 550px;
+        height: 350px;
+        margin: 0 auto;
+      }
+      td {
+        border: 1px solid #444444;
+        text-align: center;
+      }
+      h3 {
+        text-align: center;
+        line-height: 50px;
+      }
+      hr {
+        border: 2px solid;
+      }
+      tbody tr:nth-child(even) {
+        background-color: #bbdefb;
+      }
+      tbody tr:nth-child(odd) {
+        background-color: #e3f2fd;
+      }
+      th {
+        background-color: #0d47a1;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>앱 개발 UI/UX</h3>
+    <table>
+      <tr>
+        <th>이름</th>
+        <th>소속</th>
+      </tr>
+      <tr>
+        <td>김한울</td>
+        <td>개발팀</td>
+      </tr>
+      <tr>
+        <td>이경은</td>
+        <td>개발팀</td>
+      </tr>
+      <tr>
+        <td>임창운</td>
+        <td>개발팀</td>
+      </tr>
+      <tr>
+        <td>민지원</td>
+        <td>개발팀</td>
+      </tr>
+      <tr>
+        <td>추홍규</td>
+        <td>개발팀</td>
+      </tr>
+      <tr>
+        <td>김연준</td>
+        <td>개발팀</td>
+      </tr>
+      <tr>
+        <td>강대국</td>
+        <td>개발팀</td>
+      </tr>
+      <tr>
+        <td>김주현</td>
+        <td>개발팀</td>
+      </tr>
+      <tr>
+        <td>김대희</td>
+        <td>개발팀</td>
+      </tr>
+      <tr>
+        <td>이진희</td>
+        <td>UI/UX팀</td>
+      </tr>
+      <tr>
+        <td>최미성</td>
+        <td>UI/UX팀</td>
+      </tr>
+      <tr>
+        <td>최연정</td>
+        <td>UI/UX팀</td>
+      </tr>
+    </table>
+    <table>
+      <tr>
+        <th>이름</th>
+        <th>소속</th>
+      </tr>
+      <tr>
+        <td>김한울</td>
+        <td rowspan="3">개발팀</td>
+      </tr>
+      <tr>
+        <td>이경은</td>
+      </tr>
+      <tr>
+        <td>임창운</td>
+      </tr>
+      <tr>
+        <td>민지원</td>
+        <td rowspan="6">개발팀</td>
+      </tr>
+      <tr>
+        <td>추홍규</td>
+      </tr>
+      <tr>
+        <td>김연준</td>
+      </tr>
+      <tr>
+        <td>강대국</td>
+      </tr>
+      <tr>
+        <td>김주현</td>
+      </tr>
+      <tr>
+        <td>김대희</td>
+      </tr>
+      <tr>
+        <td>이진희</td>
+        <td rowspan="3">UI/UX팀</td>
+      </tr>
+      <tr>
+        <td>최미성</td>
+      </tr>
+      <tr>
+        <td>최연정</td>
+      </tr>
+      <hr />
+    </table>
+  </body>
+</html>

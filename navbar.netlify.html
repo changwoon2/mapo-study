@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>navbar</title>
+
+    <style>
+      nav a {
+        text-decoration: none;
+        color: black;
+        margin: 2rem;
+      }
+
+      nav:first-child {
+        display: flex;
+        justify-content: center;
+      }
+
+      nav:nth-child(2) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      #horizontal_underline {
+        position: absolute;
+        width: 100%;
+        background-color: pink;
+        /* top: 0px;
+            left: 0px; */
+        height: 4px;
+        transition: 0.5s;
+        display: none;
+      }
+
+      #vertical-underline {
+        position: absolute;
+        width: 100%;
+        background-color: powderblue;
+        /* top: 150px; */
+        height: 4px;
+        transition: 0.5s;
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div
+        id="horizontal_underline"
+        style="left: 150px; width: 44px; top: 61px; display: block"
+      ></div>
+      <a href="#" id="horzion_about">About</a>
+      <a href="#">Menu</a>
+      <a href="#">Store</a>
+      <a href="#">Service</a>
+      <a href="#">Responsibility</a>
+    </nav>
+
+    <nav>
+      <div
+        id="vertical-underline"
+        style="left: 392px; width: 45px; top: 146px; display: block"
+      ></div>
+      <a href="#" id="vertical_about">About</a>
+      <a href="#">Menu</a>
+      <a href="#">Store</a>
+      <a href="#">Service</a>
+      <a href="#">Responsibility</a>
+    </nav>
+
+    <script>
+      // 사용자가 클릭한 (세로, 가로) 메뉴명을 담을 변수
+      let HORIZONTAL_TARGET;
+      let VERTICAL_TARGET;
+
+      // window 창 open Event
+      window.onload = () => {
+        // About 메뉴 click
+        menuClick("horzion_about");
+        menuClick("vertical_about");
+      };
+
+      /**
+       *  horizontal Menu click Event
+       *  @param menu : 전달받은 menu id
+       **/
+      function menuClick(menu) {
+        document.getElementById(menu).click();
+      }
+
+      // window 창 리사이즈 시 메뉴 아이콘 따라가게 변경
+      window.onresize = () => {
+        HORIZONTAL_TARGET.click();
+        VERTICAL_TARGET.click();
+      };
+
+      /**
+       *  horizontal 메뉴 클릭 이벤트
+       **/
+      let horizontalUnerline = document.getElementById("horizontal_underline");
+      let horizontalMenus = document.querySelectorAll("nav:first-child a");
+
+      horizontalMenus.forEach((menu) =>
+        menu.addEventListener("click", (e) => drawIndicator(e, "horizontal"))
+      );
+
+      /**
+       *  vertical 메뉴 클릭 이벤트
+       * */
+      let verticalUnderline = document.getElementById("vertical-underline");
+      let verticalMenus = document.querySelectorAll("nav:nth-child(2) a");
+
+      verticalMenus.forEach((menu) =>
+        menu.addEventListener("click", (e) => drawIndicator(e, "vertical"))
+      );
+
+      /**
+       * 메뉴의 underline 위치, display 제어
+       * @param e : event
+       * @param item : 선택한 메뉴 엘리먼트 (horizontal, vertical)
+       *
+       */
+      function drawIndicator(e, item) {
+        if (item === "vertical") {
+          verticalUnderline.style.left = e.currentTarget.offsetLeft + "px";
+          verticalUnderline.style.width = e.currentTarget.offsetWidth + "px";
+          verticalUnderline.style.top =
+            e.currentTarget.offsetTop + e.currentTarget.offsetHeight + "px";
+          verticalUnderline.style.display = "block";
+
+          VERTICAL_TARGET = e.currentTarget;
+        } else {
+          horizontalUnerline.style.left = e.currentTarget.offsetLeft + "px";
+          horizontalUnerline.style.width = e.currentTarget.offsetWidth + "px";
+          horizontalUnerline.style.top =
+            e.currentTarget.offsetTop + e.currentTarget.offsetHeight + "px";
+          horizontalUnerline.style.display = "block";
+
+          HORIZONTAL_TARGET = e.currentTarget;
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="kr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Header Merging Project</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: sans-serif;
+      }
+      .tablink {
+        background-color: #555;
+        color: white;
+        float: left;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 14px 16px;
+        font-size: 17px;
+        width: 25%;
+      }
+
+      .tablink:hover {
+        background-color: #777;
+      }
+
+      .tabcontent {
+        color: white;
+        display: none;
+        padding: 50px;
+        text-align: center;
+      }
+
+      .bodycontent {
+        flex: auto;
+        text-align: center;
+        padding: 300px;
+        color: white;
+        font-size: 2em;
+      }
+      body {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+      #London,
+      #About {
+        background-color: pink;
+      }
+      #Paris,
+      #Home {
+        background-color: gold;
+      }
+      #Tokyo,
+      #News {
+        background-color: greenyellow;
+      }
+      #Oslo,
+      #Contact {
+        background-color: olivedrab;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="London" class="tabcontent">
+      <h1>London</h1>
+      <p>London is the capital city of England!</p>
+    </div>
+    <div id="Paris" class="tabcontent">
+      <h1>Paris</h1>
+      <p>Paris is the capital city of France!</p>
+    </div>
+    <div id="Tokyo" class="tabcontent">
+      <h1>Tokyo</h1>
+      <p>Tokyo is the capital city of Japan!</p>
+    </div>
+    <div id="Oslo" class="tabcontent">
+      <h1>Oslo</h1>
+      <p>Oslo is the capital city of Norway!</p>
+    </div>
+
+    <header>
+      <button
+        class="tablink"
+        onclick="openCity('London', 'Home', this, 'red')"
+        id="defaultOpen"
+      >
+        London
+      </button>
+      <button
+        class="tablink"
+        onclick="openCity('Paris', 'News', this, 'green')"
+      >
+        Paris
+      </button>
+      <button
+        class="tablink"
+        onclick="openCity('Tokyo', 'Contact', this, 'blue')"
+      >
+        Tokyo
+      </button>
+      <button
+        class="tablink"
+        onclick="openCity('Oslo', 'About', this, 'orange')"
+      >
+        Oslo
+      </button>
+    </header>
+
+    <div id="Home" class="bodycontent">
+      <h3>Home</h3>
+      <p>Home is where the heart is...</p>
+    </div>
+    <div id="News" class="bodycontent">
+      <h3>News</h3>
+      <p>Some news this fine day!</p>
+    </div>
+    <div id="Contact" class="bodycontent">
+      <h3>Contact</h3>
+      <p>Get in touch, or swing by for a cup of coffee.</p>
+    </div>
+    <div id="About" class="bodycontent">
+      <h3>About</h3>
+      <p>Who we are and what we do!</p>
+    </div>
+
+    <script>
+      function openCity(cityName, menuName, element, color) {
+        // Upper body part
+        Array.from(document.querySelectorAll(".tabcontent"), (e) => {
+          e.style.display = "none";
+        });
+
+        Array.from(document.querySelectorAll(".tablink"), (e) => {
+          e.style.backgroundColor = "";
+        });
+
+        // Lower body part
+        Array.from(document.querySelectorAll(".bodycontent"), (e) => {
+          e.style.display = "none";
+        });
+
+        document.getElementById(cityName).style.display = "block";
+        document.querySelector("#" + menuName).style.display = "block";
+        element.style.backgroundColor = color;
+      }
+
+      document.getElementById("defaultOpen").click();
+    </script>
+  </body>
+</html>
