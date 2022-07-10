@@ -10,6 +10,7 @@
   height: 100vh;
   padding: 0 10%;
   background: #f7efef;
+  margin-bottom: 20px;
 }
 
 nav {
@@ -95,24 +96,20 @@ nav ul li a:hover {
 
 #shopme {
   position: relative;
+  margin-bottom: 20px;
 }
 
 #shopme p {
   position: absolute;
-  left: 45%;
-  top: 55%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
   font-size: 40px;
   color: white;
 }
 
-#shopme1 {
-  position: relative;
-}
-
-#shopme1 p {
-  position: absolute;
-  left: 45%;
-  top: 55%;
-  font-size: 40px;
-  color: white;
+#shopme img {
+  background-size: cover;
+  height: 100vh;
+  width: 100%;
 }
